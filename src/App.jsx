@@ -47,15 +47,6 @@ function App() {
         setAdvice(adviceData);
         setId(adviceId);
 
-        setListOfAdvice((prevItem) => {
-
-          return [prevItem, adviceData];
-
-        })
-
-
-
-
       })
       .catch((error) => {
 
@@ -78,6 +69,23 @@ function App() {
 
   }
 
+  const handleSaveAdvice = () => {
+
+    setListOfAdvice((prevItem) => {
+
+      return [prevItem, advice];
+
+    })
+
+
+  }
+
+  const handleResetAdvice = () => {
+
+    setAdvice('Generate reminder');
+
+  }
+
   return (
     <>
       <div className="ureminder">
@@ -88,6 +96,8 @@ function App() {
 
             <h1 className="text-white fw-bolder">Your Daily Reminder Buddy</h1>
             <button onClick={handleNextAdvice}>Remind me</button>
+            <button onClick={handleSaveAdvice}>Save advice</button>
+            <button onClick={handleResetAdvice}>Reset</button>
             {
               loading ? (
                 <Loader />
@@ -95,8 +105,6 @@ function App() {
                 <h2 className="text-light fw-normal slide-in-fwd-center" >{advice}</h2>
               )
             }
-
-
 
           </div>
 
