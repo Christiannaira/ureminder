@@ -87,7 +87,7 @@ function App() {
           <div className="ureminder--content w-100 h-50 p-3">
 
             <h1 className="text-white fw-bolder">Your Daily Reminder Buddy</h1>
-            <button onClick={handleNextAdvice} className="ureminder--btn border border-white w-25 bg-transparent text-white fw-normal rounded-pill p-3 mb-5 mt-3">Remind me</button>
+            <button onClick={handleNextAdvice}>Remind me</button>
             {
               loading ? (
                 <Loader />
@@ -95,6 +95,8 @@ function App() {
                 <h2 className="text-light fw-normal slide-in-fwd-center" >{advice}</h2>
               )
             }
+
+
 
           </div>
 

@@ -13,8 +13,22 @@ body {
   font-size: 4rem;
 }
 
-button.ureminder--btn button:hover {
-  background-color: #fff;
+.ureminder button {
+  width: 25%;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  background: transparent;
+  outline: none;
+  border: 1px solid #ddd;
+  color: #ddd;
+  font-size: 1.3rem;
+  margin: 1rem 0 3rem;
+}
+
+button:hover {
+  background-color: #ddd;
+  transition: .3s ease-out;
+  color: #222;
 }
 
 .slide-in-fwd-center {
