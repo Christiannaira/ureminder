@@ -11,7 +11,6 @@ function App() {
   const fetchRandomAdviceApi = () => {
 
     setLoading(true);
-
     axios.get('https://api.adviceslip.com/advice')
       .then((response) => {
 
