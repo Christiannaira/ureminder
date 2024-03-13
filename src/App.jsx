@@ -82,7 +82,7 @@ function App() {
     <>
       <div className="ureminder">
 
-        <div className="ureminder--content container-sm h-100 text-center d-flex align-items-center">
+        <div className="ureminder--content container-sm h-100 text-md-center d-sm-flex align-items-center">
 
           <div className="ureminder--content w-100 h-50 p-3">
 

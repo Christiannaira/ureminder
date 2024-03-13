@@ -75,3 +75,33 @@ button:hover {
     opacity: 1;
   }
 }
+
+/*responsiveness*/
+
+@media screen and (max-width: 995px) {
+
+  .ureminder h1 {
+    font-size: 3.5rem;
+  }
+
+  .ureminder button {
+    width: 50%;
+
+  }
+
+}
+
+
+@media screen and (max-width: 500px) {
+
+  .ureminder h1 {
+    font-size: 3rem;
+  }
+
+  .ureminder button {
+    width: 100%;
+    font-size: 1rem;
+    text-align: left;
+  }
+
+}
