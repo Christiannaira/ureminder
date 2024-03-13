@@ -31,6 +31,7 @@ function App() {
   const [advice, setAdvice] = useState('Generate reminder');
   const [id, setId] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [listOfAdvice, setListOfAdvice] = useState([]);
 
   const fetchRandomAdviceApi = () => {
 
@@ -41,10 +42,17 @@ function App() {
         const adviceData = response.data.slip.advice;
         const adviceId = response.data.slip.id;
 
-        console.log(adviceData);
+        // console.log(adviceData); 
 
         setAdvice(adviceData);
         setId(adviceId);
+
+        setListOfAdvice((prevItem) => {
+
+          return [prevItem, adviceData];
+
+        })
+
 
 
 
@@ -84,7 +92,7 @@ function App() {
               loading ? (
                 <Loader />
               ) : (
-                <h2 className="text-light fw-normal">{advice}</h2>
+                <h2 className="text-light fw-normal slide-in-fwd-center" >{advice}</h2>
               )
             }
 
