@@ -1,6 +1,30 @@
 
 import { useState } from "react";
 import axios from "axios";
+import { MagnifyingGlass } from "react-loader-spinner";
+
+function Loader() {
+
+  return (
+
+    <div>
+
+      <MagnifyingGlass
+        visible={true}
+        height="80"
+        width="80"
+        ariaLabel="magnifying-glass-loading"
+        wrapperStyle={{}}
+        wrapperClass="magnifying-glass-wrapper"
+        glassColor="#c0efff"
+        color="#e15b64"
+      />
+
+    </div>
+
+  )
+
+}
 
 function App() {
 
@@ -48,15 +72,19 @@ function App() {
 
   return (
     <>
-      <h1>HELLO WORLD</h1>
-      <button onClick={handleNextAdvice}>Remind me</button>
-      {
-        loading ? (
-          <div>Loading...</div>
-        ) : (
-          <h1>{advice}</h1>
-        )
-      }
+      <div className="container">
+
+        <h1>HELLO WORLD</h1>
+        <button onClick={handleNextAdvice}>Remind me</button>
+        {
+          loading ? (
+            <Loader />
+          ) : (
+            <h1>{advice}</h1>
+          )
+        }
+
+      </div>
 
     </>
   )
