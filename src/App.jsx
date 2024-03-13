@@ -4,7 +4,7 @@ import axios from "axios";
 
 function App() {
 
-  const [advice, setAdvice] = useState('');
+  const [advice, setAdvice] = useState('Generate reminder');
   const [id, setId] = useState(null);
 
   const fetchRandomAdviceApi = () => {
@@ -27,13 +27,17 @@ function App() {
 
   }
 
-  fetchRandomAdviceApi();
 
+  const handleNextAdvice = () => {
+
+    fetchRandomAdviceApi();
+
+  }
 
   return (
     <>
       <h1>HELLO WORLD</h1>
-      <button>Remind me</button>
+      <button onClick={handleNextAdvice}>Remind me</button>
       {advice}
 
     </>
