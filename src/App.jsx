@@ -6,8 +6,11 @@ function App() {
 
   const [advice, setAdvice] = useState('Generate reminder');
   const [id, setId] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const fetchRandomAdviceApi = () => {
+
+    setLoading(true);
 
     axios.get('https://api.adviceslip.com/advice')
       .then((response) => {
@@ -15,8 +18,12 @@ function App() {
         const adviceData = response.data.slip.advice;
         const adviceId = response.data.slip.id;
 
+        console.log(adviceData);
+
         setAdvice(adviceData);
         setId(adviceId);
+
+
 
       })
       .catch((error) => {
@@ -24,6 +31,12 @@ function App() {
         console.log(error);
 
       })
+      .finally(() => {
+
+        setLoading(false);
+
+      })
+
 
   }
 
@@ -38,7 +51,13 @@ function App() {
     <>
       <h1>HELLO WORLD</h1>
       <button onClick={handleNextAdvice}>Remind me</button>
-      {advice}
+      {
+        loading ? (
+          <div>Loading...</div>
+        ) : (
+          <h1>{advice}</h1>
+        )
+      }
 
     </>
   )
