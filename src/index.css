@@ -1,1 +1,18 @@
 @import 'bootstrap/dist/css/bootstrap.css';
+
+body {
+  background-image: linear-gradient(to left, #05161A, #072E33);
+  background-size: cover;
+}
+
+.ureminder {
+  height: 100vh;
+}
+
+.ureminder h1 {
+  font-size: 4rem;
+}
+
+button.ureminder--btn button:hover {
+  background-color: #fff;
+}
