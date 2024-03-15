@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { MagnifyingGlass } from "react-loader-spinner";
+import { Helmet } from "react-helmet";
 
 function Loader() {
 
@@ -98,34 +99,50 @@ function App() {
 
   return (
     <>
-      <div className="ureminder">
+      <header>
+        <Helmet>
+          <title>Ureminder</title>
+          {/* <link rel="icon" type="image/svg+xml" href="/vite.svg" /> */}
+          <meta name="description" content="ureminder is an application that gives you daily reminder" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <meta charset="UTF-8" />
 
-        <div className="ureminder--content container-sm h-100 text-md-center d-sm-flex align-items-center">
+        </Helmet>
+      </header>
 
-          <div className="ureminder--content w-100 h-50 p-3">
+      <main>
+        <div className="ureminder">
 
-            <h1 className="text-white fw-bolder">Your Daily Reminder Buddy</h1>
-            <button onClick={handleNextAdvice}>Remind me</button>
-            <button onClick={handleResetAdvice}>Reset</button>
-            {
-              loading ? (
-                <Loader />
-              ) : (
-                <h2 className="text-light fw-normal slide-in-fwd-center fetch--result" >
-                  <Result advice={advice} />
-                </h2>
+          <div className="ureminder--content container-sm h-100 text-md-center d-sm-flex align-items-center">
 
-              )
-            }
+            <div className="ureminder--content w-100 h-50 p-3">
+
+              <h1 className="text-white fw-bolder">Your Daily Reminder Buddy</h1>
+              <button onClick={handleNextAdvice}>Remind me</button>
+              <button onClick={handleResetAdvice}>Reset</button>
+              {
+                loading ? (
+                  <Loader />
+                ) : (
+                  <h2 className="text-light fw-normal slide-in-fwd-center fetch--result" >
+                    <Result advice={advice} />
+                  </h2>
+
+                )
+              }
+
+            </div>
+
 
           </div>
 
+          <footer>
+            <p className="tip text-white text-center">Tip: Click the <span>'remind me'</span> slowly 3-5 seconds before clicking again</p>
+          </footer>
 
         </div>
 
-        <p className="tip text-white text-center">Tip: Click the <span>'remind me'</span> slowly 3-5 seconds before clicking again</p>
-
-      </div>
+      </main>
 
 
     </>
