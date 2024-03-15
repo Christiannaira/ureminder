@@ -31,7 +31,6 @@ function App() {
   const [advice, setAdvice] = useState('Generate reminder');
   const [id, setId] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [listOfAdvice, setListOfAdvice] = useState([]);
 
   const fetchRandomAdviceApi = () => {
 
@@ -69,16 +68,7 @@ function App() {
 
   }
 
-  const handleSaveAdvice = () => {
 
-    setListOfAdvice((prevItem) => {
-
-      return [prevItem, advice];
-
-    })
-
-
-  }
 
   const handleResetAdvice = () => {
 
@@ -96,13 +86,12 @@ function App() {
 
             <h1 className="text-white fw-bolder">Your Daily Reminder Buddy</h1>
             <button onClick={handleNextAdvice}>Remind me</button>
-            <button onClick={handleSaveAdvice}>Save advice</button>
             <button onClick={handleResetAdvice}>Reset</button>
             {
               loading ? (
                 <Loader />
               ) : (
-                <h2 className="text-light fw-normal slide-in-fwd-center" >{advice}</h2>
+                <h2 className="text-light fw-normal slide-in-fwd-center fetch--result" >{advice}</h2>
               )
             }
 
