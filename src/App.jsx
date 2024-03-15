@@ -123,6 +123,8 @@ function App() {
 
         </div>
 
+        <p className="tip text-white text-center">Tip: Click the <span>'remind me'</span> slowly 3-5 seconds before clicking again</p>
+
       </div>
 
 
