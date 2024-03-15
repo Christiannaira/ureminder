@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { MagnifyingGlass } from "react-loader-spinner";
 
@@ -26,11 +26,29 @@ function Loader() {
 
 }
 
+function Result({ advice }) {
+
+  return (
+    <>
+      {advice}
+    </>
+  )
+
+}
+
 function App() {
 
   const [advice, setAdvice] = useState('Generate reminder');
   const [id, setId] = useState(null);
   const [loading, setLoading] = useState(false);
+  const previousAdviceValue = useRef("");
+
+  useEffect(() => {
+
+    previousAdviceValue.current = advice;
+
+
+  }, [advice])
 
   const fetchRandomAdviceApi = () => {
 
@@ -41,7 +59,7 @@ function App() {
         const adviceData = response.data.slip.advice;
         const adviceId = response.data.slip.id;
 
-        // console.log(adviceData); 
+        console.log(adviceData);
 
         setAdvice(adviceData);
         setId(adviceId);
@@ -76,6 +94,8 @@ function App() {
 
   }
 
+
+
   return (
     <>
       <div className="ureminder">
@@ -91,7 +111,10 @@ function App() {
               loading ? (
                 <Loader />
               ) : (
-                <h2 className="text-light fw-normal slide-in-fwd-center fetch--result" >{advice}</h2>
+                <h2 className="text-light fw-normal slide-in-fwd-center fetch--result" >
+                  <Result advice={advice} />
+                </h2>
+
               )
             }
 
